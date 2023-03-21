@@ -13,6 +13,7 @@ interface DescriptionProps {
 const Description: React.FC<DescriptionProps> = () => {
   return (
     <div>
+
       <div className={styles.description}>
       </div>
 
@@ -67,7 +68,7 @@ const Description: React.FC<DescriptionProps> = () => {
           </p>
         </a>
       </div>
-    </div>
+    </div >
   );
 };
 

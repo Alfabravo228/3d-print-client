@@ -3,6 +3,11 @@ import styles from '@/styles/Main.module.scss'
 import DrawerAppBar from '@/components/DrawerAppBar'
 import Description from '@/components/Description'
 import Examples from '@/components/Examples'
+import Benefits from '@/components/Benefits'
+import Working from '@/components/Working'
+import Price from '@/components/Price'
+import Form from '@/components/Form'
+import Footer from '@/components/Footer'
 
 
 
@@ -19,6 +24,11 @@ export default function Home() {
         <DrawerAppBar />
         <Description />
         <Examples />
+        <Benefits />
+        <Working />
+        <Price />
+        <Form />
+        <Footer />
       </main>
     </>
   )
