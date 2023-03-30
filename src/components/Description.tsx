@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '../styles/Description.module.scss'
+import { Button, Grid, Typography } from '@mui/material';
+import { TypePredicateKind } from 'typescript';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,63 +14,42 @@ interface DescriptionProps {
 
 const Description: React.FC<DescriptionProps> = () => {
   return (
-    <div>
+    <Grid
+      md
+      container
+      justifyContent={"flex-start"}
+      className={styles.container}>
+      <Typography
+        variant="h1"
+        component="div"
+        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+        className={styles.title}>
+        Сучасний 3D-друк
+      </Typography>
+      <Typography
+        variant="h4"
+        component="div"
+        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+        className={styles.text}>
+        Вітаємо вас у світі новітніх технологій та інновацій! Наша компанія пропонує найкращі послуги 3D-друку, які забезпечать вам якісний та швидкий результат у виробництві прототипів та готових виробів будь-якої форми, кольору та міцності.
+      </Typography>
+      <Grid className={styles.buttonWrapper}>
+        <Button
+          className={styles.button1}
+          variant='contained'
+          color={'primary'}>
+          Замовити
+        </Button>
+        <Button
+          className={styles.button2}
+          variant='contained'
+          color={'secondary'}
 
-      <div className={styles.description}>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image
-            src="/thirteen.svg"
-            alt="13"
-            width={40}
-            height={31}
-            priority
-          />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
         >
-          <h2 className={inter.className}>
-            3д-друкування<span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and&nbsp;API.
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            3д-моделювання <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-      </div>
-    </div >
+          Контакти
+        </Button>
+      </Grid>
+    </Grid >
   );
 };
 

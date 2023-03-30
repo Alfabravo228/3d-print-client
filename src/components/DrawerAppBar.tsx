@@ -13,6 +13,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import styles from '../styles/DrawerAppBar.module.scss'
+import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
+import { Grid, Icon } from '@mui/material';
 
 interface DrawerAppBarProps {
   window?: () => Window;
@@ -53,35 +56,62 @@ const DrawerAppBar: React.FC<DrawerAppBarProps> = (props: DrawerAppBarProps) => 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} className={styles.container}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        className={styles.appBar}
+        elevation={0}
+        position="sticky"
+      >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            3D-PRINT
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+          <Grid container justifyContent={"space-between"}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Grid className={styles.logoWrapper}>
+              <Grid className={styles.iconWrapper}>
+                <ThreeDRotationIcon
+                  className={styles.icon}
+                  style={{ height: 45, width: 45 }} />
+              </Grid>
+              <Typography
+                className={styles.titleFirst}
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+              >
+                Sculptify
+              </Typography>
+              {/* <Typography
+                className={styles.titleSecond}
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+              >
+                UA
+              </Typography> */}
+            </Grid>
+            <Grid className={styles.linksWrapper} sx={{ display: { xs: 'none', sm: 'block' } }}>
+              {navItems.map((item) => (
+                <Button
+                  color='inherit'
+                  className={styles.link}
+                  key={item}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Grid>
+          </Grid>
+        </Toolbar >
+      </AppBar >
       <Box component="nav">
         <Drawer
           container={container}
@@ -99,14 +129,7 @@ const DrawerAppBar: React.FC<DrawerAppBarProps> = (props: DrawerAppBarProps) => 
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <Typography>
-          Пропонуємо послуги 3D-друку для виробництва прототипів або готових виробів будь-якої форми, кольору та міцності. Готові виробляти як поодинокі екземпляри, так і цілі партії для дрібних та великих виробництв.
-          Пропонуємо послуги 3D-друку для виробництва прототипів або готових виробів будь-якої форми, кольору та міцності. Готові виробляти як поодинокі екземпляри, так і цілі партії для дрібних та великих виробництв.
-        </Typography>
-      </Box>
-    </Box>
+    </Box >
   );
 }
 
