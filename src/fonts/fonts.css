@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Alfa Slab One';
+  src: url('AlfaSlabOne-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: 'Montserrat';
   src: url('Montserrat-Regular.ttf') format('truetype');
   font-style: normal;

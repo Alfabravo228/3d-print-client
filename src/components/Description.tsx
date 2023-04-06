@@ -15,7 +15,7 @@ interface DescriptionProps {
 const Description: React.FC<DescriptionProps> = () => {
   return (
     <Grid
-      md
+      spacing={100}
       container
       justifyContent={"flex-start"}
       className={styles.container}>

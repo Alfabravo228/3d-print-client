@@ -85,7 +85,7 @@ const theme = createTheme({
     MuiGrid: {
       variants: [
         {
-          props: { md: true },
+          props: { spacing: 100 },
           style: {
             padding: '100px 100px',
           },

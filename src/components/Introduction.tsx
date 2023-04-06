@@ -15,7 +15,7 @@ interface IntroductionProps {
 const Introduction: React.FC<IntroductionProps> = () => {
   return (
     <Grid
-      md
+      spacing={100}
       className={styles.wrapper}>
       <Typography
         className={styles.title}
